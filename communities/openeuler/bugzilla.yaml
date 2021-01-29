@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openeuler-hk-bugzilla
+  namespace: argocd
+  labels:
+    community: openeuler-hk
+spec:
+  destination:
+    namespace: bugzilla
+    name: openeuler-external
+  project: openeuler
+  source:
+    path: applications/bugzilla
+    repoURL: https://github.com/opensourceways/infra-openeuler.git
+    targetRevision: HEAD
